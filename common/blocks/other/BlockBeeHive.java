@@ -11,6 +11,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockWood;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -72,7 +73,7 @@ public class BlockBeeHive extends Block {
 	/**
 	 * Returns the item the block should drop when destroyed.
 	 */
-	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+	public Item getItemDropped(int a, Random rand, int b)
 	{
 		return FCItems.honeyComb;  
 	}
@@ -83,8 +84,27 @@ public class BlockBeeHive extends Block {
 	 */
 	public int quantityDropped(Random rand)
 	{
-		return 3;
+		if(Math.random() > 0.75)
+			return 2;
+		else
+			return 3;
 	}
+	
+	@Override
+    /**
+     * Checks if the specified tool type is efficient on this block,
+     * meaning that it digs at full speed.
+     *
+     * @param type
+     * @param metadata
+     * @return
+     */
+    public boolean isToolEffective(String type, int metadata)
+    {
+        if ("axe".equals(type))
+            return true;
+        else return false;
+    }
 
 
 }

@@ -29,25 +29,4 @@ public class FCBlocks
         GameRegistry.registerBlock(weed, "Weeds");
         GameRegistry.registerBlock(weedWithEggs, "Weeds_With_Eggs");   
     }
-
-    public static boolean checkForChar(String s, char c)
-    {
-        for (int i = 0; i < s.length(); i++)
-        {
-            if (s.charAt(i) == c)
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public static void removeStringAfterChar(String s, char c)
-    {
-        if (checkForChar(s, c))
-        {
-            s = s.substring(0, s.indexOf(c));
-        }
-    }
 }
