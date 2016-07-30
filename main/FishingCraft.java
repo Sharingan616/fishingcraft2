@@ -3,6 +3,8 @@ package fishingcraft2.main;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import fishingcraft2.common.blocks.FCBlocks;
+import fishingcraft2.common.items.FCItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -20,10 +22,12 @@ import net.minecraft.item.Item;
  */
 public class FishingCraft
 {
-    public static final String MODID = "fc2";
+    public static final String MODID = "fishingcraft2";
     public static final String VERSION = "2.0";
+    private FCItems modItems;
+    private FCBlocks modBlocks;
     
-    public static CreativeTabs fcTab = new CreativeTabs("fishingcraft_tab")
+    public static CreativeTabs fcTab = new CreativeTabs("fishingcraft")
     {
 		public Item getTabIconItem() {
 			return Items.fishing_rod;
@@ -33,6 +37,7 @@ public class FishingCraft
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-		
+		modItems = new FCItems();
+		modBlocks.registerBlocks();
     }
 }
